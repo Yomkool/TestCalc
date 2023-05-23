@@ -1,1 +1,1 @@
-# TestCalc
+run 'node calculator.js' in terminal to begin
