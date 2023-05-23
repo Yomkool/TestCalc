@@ -5,8 +5,28 @@ const readline = readLine.createInterface({
     output: process.stdout,
   });
   
-  readline.question(`What's your name?`, name => {
-    console.log(`Hi ${name}!`);
-    readline.close();
+  //declare an array of possible operations to compare against input
+  const operations = {
+        '+': ((x, y) => x + y),
+        '-': ((x, y) => x - y),
+        '/': ((x, y) => x / y),
+        '*': ((x, y) => x * y)
+    };
+
+  //initialize stack for user inputs to keep track of current
+  const inputStack = []
+
+  readline.on(`line`, (input) => {
+    console.log(`registered ${input}`);
+    switch (input) {
+        case 'q':
+            console.log('calculator closing')
+            readline.close();
+            //must break to prevent other actions in switch
+            break;
+        default:
+            let singleLineInputs = input.split(' ')
+            
+    }
   });
   
