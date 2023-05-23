@@ -13,9 +13,10 @@ console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 console.log("Welcome to the calculator!");
 console.log("Enter numbers and operators ('+', '-', '*', '/') separated by spaces");
 console.log("Enter 'q' to exit");
-console.log("Enter 's' to view the current order of inputs");
+console.log("Enter 'stack' to view the current order of inputs");
 console.log("Enter 'back' to remove the most recent numerical input");
 console.log("Enter 'clear' to remove all current inputs");
+console.log("Enter 'history' to see all operations this session");
 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 readline.on(`line`, (input) => {
@@ -26,7 +27,7 @@ readline.on(`line`, (input) => {
             readline.close();
             // Break to prevent other actions in switch
             break;
-        case "s":
+        case "stack":
             if(calculator.inputStack.length === 1){
                 console.log(`The current input is ${calculator.inputStack}`);
             } else if(calculator.inputStack.length === 0){
@@ -51,7 +52,9 @@ readline.on(`line`, (input) => {
             calculator.inputStack = [];
             break;
         case "history":
-            console.log(calculator.operationHistory);
+            calculator.operationHistory.forEach((item)=>{
+                console.log(item);
+            })
             break;
         default:{
             // Create an array of inputs to iterate through

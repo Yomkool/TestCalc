@@ -140,7 +140,7 @@ test("Calculator correctly provides the user with the current stack", (done) => 
     calculator.stdin.write("3\n");
     calculator.stdin.write("4\n");
     calculator.stdin.write("5\n");
-    calculator.stdin.write("s\n");
+    calculator.stdin.write("stack\n");
     calculator.stdin.end();
 
     calculator.stdout.on("end", () => {

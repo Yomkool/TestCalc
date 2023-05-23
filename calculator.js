@@ -40,7 +40,7 @@ class Calculator {
         // Push result onto the stack for next operations
         let tempResult = this.operations[item](x, y);
         this.inputStack.push(tempResult);
-        this.operationHistory.push(tempResult);
+        this.operationHistory.push(`${x} ${item} ${y} = ${tempResult}`);
         //return null so no error is thrown
         return null;
     }
