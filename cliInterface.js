@@ -9,7 +9,7 @@ const readline = readLine.createInterface({
 const calculator = new Calculator();
 
 // Instructions for the user
-console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 console.log("Welcome to the calculator!");
 console.log("Enter numbers and operators ('+', '-', '*', '/') separated by spaces");
 console.log("Enter 'q' to exit");
@@ -17,13 +17,13 @@ console.log("Enter 'stack' to view the current order of inputs");
 console.log("Enter 'back' to remove the most recent numerical input");
 console.log("Enter 'clear' to remove all current inputs");
 console.log("Enter 'history' to see all operations this session");
-console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 readline.on(`line`, (input) => {
     input = input.toLowerCase();
     switch (input) {
         case "q":
-            console.log("calculator closing");
+            console.log("Calculator closing");
             readline.close();
             // Break to prevent other actions in switch
             break;
@@ -72,7 +72,7 @@ readline.on(`line`, (input) => {
             }
             // Log most recent calculation
             if(calculator.inputStack.length > 1){
-                console.log(`The two current operands are ${calculator.inputStack[calculator.inputStack.length-2]} and ${calculator.inputStack[calculator.inputStack.length-1]}. Enter 's' to view remaining operands`);
+                console.log(`The two current operands are ${calculator.inputStack[calculator.inputStack.length-2]} and ${calculator.inputStack[calculator.inputStack.length-1]}`);
             }
             // Log the most recent result
             else if(calculator.inputStack.length === 1){

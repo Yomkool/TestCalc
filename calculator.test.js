@@ -178,7 +178,7 @@ test("Calculator correctly displays the current operands to the user", (done) =>
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("The two current operands are 9 and 1. Enter 's' to view remaining operands");
+        expect(lastLine).toBe("The two current operands are 9 and 1");
         done();
     })
 })
@@ -207,7 +207,7 @@ test("Calculator correctly removes invalid inputs without breaking functionality
         //get 2nd to last line
         const secondLastLine = lines[lines.length - 2]
         expect(secondLastLine).toBe("There was an additional space or an invalid input which has been removed");
-        expect(lastLine).toBe("The two current operands are 5 and 10. Enter 's' to view remaining operands");
+        expect(lastLine).toBe("The two current operands are 5 and 10");
         done();
     })
 })
@@ -235,7 +235,7 @@ test("Calculator doesn't allow divide by zero and allows user to continue", (don
         const lastLine = lines[lines.length - 1]; 
         //get 2nd to last line
         const secondLastLine = lines[lines.length - 2]
-        expect(lastLine).toBe("The two current operands are 6 and 0. Enter 's' to view remaining operands");
+        expect(lastLine).toBe("The two current operands are 6 and 0");
         expect(secondLastLine).toBe("Cannot divide by zero, try another operation or add additional numbers first. Press 's' to view remaining operands");
         done();
     })
@@ -263,7 +263,7 @@ test("Calculator closes correctly", (done) => {
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("calculator closing");
+        expect(lastLine).toBe("Calculator closing");
         done();
     })
 })
