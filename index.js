@@ -9,20 +9,42 @@ const readline = readLine.createInterface({
   const operations = {
         '+': ((x, y) => x + y),
         '-': ((x, y) => x - y),
-        '/': ((x, y) => x / y),
-        '*': ((x, y) => x * y)
+        '/': ((x, y) => {
+            //impossible input check
+            if(y === 0){
+                console.log("Cannot divide by zero, calculator reset");
+            } else {
+                //cut off return length
+                let result = x / y;
+                return Number(result.toFixed(3));
+            }
+        }),
+        '*': ((x, y) => {
+            //cut off return length
+            let result = x * y;
+            return Number(result.toFixed(3));
+        }),
     };
 
   //initialize stack for user inputs to keep track of current
   const inputStack = []
 
+    //instrucitons for the user
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    console.log("Welcome to the calculator!")
+    console.log("Enter numbers and operators ('+', '-', '*', '/') separated by spaces")
+    console.log("Enter 'q' to exit or 's' to view the current order of inputs")
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
   readline.on(`line`, (input) => {
-    console.log(`registered ${input}`);
     switch (input) {
         case 'q':
             console.log('calculator closing')
             readline.close();
             //break to prevent other actions in switch
+            break;
+        case 's':
+            console.log(`The current inputs are ${inputStack}`)
             break;
         default:
             //create an array of inputs to iterate through
@@ -43,14 +65,19 @@ const readline = readLine.createInterface({
                     //force int / erroneous item check
                     let numInput = parseInt(item);
                     if(isNaN(numInput)){
-                        console.log(`${input} is not a number and has not been included in this calculation`)
+                        console.log(`There was an additional space or an invalid input which has been removed`)
                     } else {
                         inputStack.push(numInput);
                     }
                 }
             }
             //log most recent calculation
-            console.log(inputStack[inputStack.length-1])
+            if(inputStack.length > 1){
+                console.log(`The two current operands are ${inputStack[inputStack.length-2]} and ${inputStack[inputStack.length-1]}`)
+            } else {
+                console.log(`The only operand is ${inputStack[inputStack.length-1]}`)
+            }
+            
     }
   });
   
