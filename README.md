@@ -17,7 +17,7 @@ The common terminology is that added items are pushed on the stack and removed i
 
 The advantage of reverse Polish notation is that it removes the need for order of operations and parentheses that are required by infix notation and can be evaluated linearly, left-to-right. For example, the infix expression (3 × 4) + (5 × 6) becomes 3 4 × 5 6 × + in reverse Polish notation.
 
-(Source: ["Reverse Polish notation."](https://en.wikipedia.org/wiki/Reverse_Polish_notation) Wikipedia, The Free Encyclopedia. Date of last revision.)
+(Source: ["Reverse Polish notation."](https://en.wikipedia.org/wiki/Reverse_Polish_notation) Wikipedia)
 
 # High Level Description
 This application is a command-line interface calculator that utilizes the concept of Reverse Polish Notation (RPN) to calculate mathematical expressions. The application is built with Node.js, tested with Jest, and follows ESLint rules for code quality.
