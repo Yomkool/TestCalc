@@ -3,6 +3,7 @@
 [![Node.js](https://img.shields.io/badge/node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Replit](https://img.shields.io/badge/Replit-DD1200?style=for-the-badge&logo=Replit&logoColor=white)
 </div>
 
 <br/>
@@ -16,12 +17,20 @@ The common terminology is that added items are pushed on the stack and removed i
 
 The advantage of reverse Polish notation is that it removes the need for order of operations and parentheses that are required by infix notation and can be evaluated linearly, left-to-right. For example, the infix expression (3 × 4) + (5 × 6) becomes 3 4 × 5 6 × + in reverse Polish notation.
 
+# High Level Description
+This application is a command-line interface calculator that utilizes the concept of Reverse Polish Notation (RPN) to calculate mathematical expressions. The application is built with Node.js, tested with Jest, and follows ESLint rules for code quality.
+
+<br/>
+
+# Technical Choices
+The application is designed to be a CLI tool, as RPN inputs are naturally linear and work well with a command-line interface. Node.js was used due to its excellent support for command-line applications and I/O operations. Jest was used for testing due to its comprehensive feature set and simplicity. ESLint was used to ensure a consistent code style and catch potential errors early.
+
 <br/>
 
 # Getting Started
-1. Run 'npm install' to install necessary dependencies
-2. Run 'npm start' or 'node calculator.js' in terminal to begin
-3. Enter numbers and/or valid operations (+, -, *, /) on a single line with spaces between each input, or on separate lines without spaces
+1. Run 'npm install' to install necessary dependencies.
+2. Run 'npm start' or 'node calculator.js' in terminal to begin.
+3. Enter numbers and/or valid operations (+, -, *, /) on a single line with spaces between each input, or on separate lines without spaces.
 
 <br/>
 
