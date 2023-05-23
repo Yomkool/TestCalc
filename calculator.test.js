@@ -5,7 +5,7 @@ const path = require("path");
 
 test("Calculator correctly calculates multi-line RPN expression", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -27,14 +27,14 @@ test("Calculator correctly calculates multi-line RPN expression", (done) => {
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("The only operand is 13");
+        expect(lastLine).toBe("The most recent result is 13");
         done();
     })
 })
 
 test("Calculator correctly calculates single-line RPN expression", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -54,7 +54,7 @@ test("Calculator correctly calculates single-line RPN expression", (done) => {
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("The only operand is -13");
+        expect(lastLine).toBe("The most recent result is -13");
         done();
     });
 
@@ -63,7 +63,7 @@ test("Calculator correctly calculates single-line RPN expression", (done) => {
 
 test("Calculator correctly calculates complex multi-line RPN expression", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -87,14 +87,14 @@ test("Calculator correctly calculates complex multi-line RPN expression", (done)
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("The only operand is 11");
+        expect(lastLine).toBe("The most recent result is 11");
         done();
     })
 })
 
 test("Calculator correctly calculates RPN expression with decimal output", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -118,14 +118,14 @@ test("Calculator correctly calculates RPN expression with decimal output", (done
         //get the last line of output
         const lastLine = lines[lines.length - 1]; 
         //check the last line
-        expect(lastLine).toBe("The only operand is 0.625");
+        expect(lastLine).toBe("The most recent result is 0.625");
         done();
     })
 })
 
 test("Calculator correctly provides the user with the current stack", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -156,7 +156,7 @@ test("Calculator correctly provides the user with the current stack", (done) => 
 
 test("Calculator correctly displays the current operands to the user", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -185,7 +185,7 @@ test("Calculator correctly displays the current operands to the user", (done) =>
 
 test("Calculator correctly removes invalid inputs without breaking functionality", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -214,7 +214,7 @@ test("Calculator correctly removes invalid inputs without breaking functionality
 
 test("Calculator doesn't allow divide by zero and allows user to continue", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";
@@ -243,7 +243,7 @@ test("Calculator doesn't allow divide by zero and allows user to continue", (don
 
 test("Calculator closes correctly", (done) => {
     //run the calculator
-    const calculator = spawn("node", [path.join(__dirname, "calculator.js")]);
+    const calculator = spawn("node", [path.join(__dirname, "cliInterface.js")]);
 
     //declare a variable to accumulate the output from the calculator process
     let output = "";

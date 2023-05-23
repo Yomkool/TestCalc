@@ -2,9 +2,9 @@
   "name": "rpn-cli-calculator",
   "version": "1.0.0",
   "description": "",
-  "main": "calculator.js",
+  "main": "cliInterface.js",
   "scripts": {
-    "start": "node calculator.js",
+    "start": "node cliInterface.js",
     "test": "jest",
     "lint": "eslint ."
   },
