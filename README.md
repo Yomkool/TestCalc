@@ -31,7 +31,7 @@ The application is designed to be a CLI tool, as RPN inputs are naturally linear
 
 ## Features
 1. Comprehensive testing suite using Jest. Run 'npm test' to execute.
-2. Stack tracking. Enter 's' during operation to see your current number stack.
+2. Stack tracking. Enter 'stack' during operation to see your current number stack.
 3. Stack manipulation. Enter 'clear' to remove all inputs. Enter 'back' to remove the most recent input.
 4. Calculation History. Enter 'history' to view all performed calculations for the current session.
 5. Error handling. Erroneous inputs are handled as to not interrupt user flow.
