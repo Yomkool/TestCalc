@@ -1,4 +1,4 @@
-const readLine = require('readline');
+const readLine = require("readline");
 
 const readline = readLine.createInterface({
     input: process.stdin,
@@ -7,19 +7,14 @@ const readline = readLine.createInterface({
   
   //declare an array of possible operations to compare against input
   const operations = {
-        '+': ((x, y) => x + y),
-        '-': ((x, y) => x - y),
-        '/': ((x, y) => {
-            //impossible input check
-            if(y === 0){
-                console.log("Cannot divide by zero, calculator reset");
-            } else {
-                //cut off return length
-                let result = x / y;
-                return Number(result.toFixed(3));
-            }
+        "+": ((x, y) => x + y),
+        "-": ((x, y) => x - y),
+        "/": ((x, y) => {
+            //cut off return length
+            let result = x / y;
+            return Number(result.toFixed(3));
         }),
-        '*': ((x, y) => {
+        "*": ((x, y) => {
             //cut off return length
             let result = x * y;
             return Number(result.toFixed(3));
@@ -38,29 +33,35 @@ const readline = readLine.createInterface({
 
   readline.on(`line`, (input) => {
     switch (input) {
-        case 'q':
-            console.log('calculator closing')
+        case "q":
+            console.log("calculator closing")
             readline.close();
             //break to prevent other actions in switch
             break;
-        case 's':
+        case "s":
             console.log(`The current inputs are ${inputStack}`)
             break;
-        default:
+        default:{
             //create an array of inputs to iterate through
-            let singleLineInputs = input.split(' ')
+            let singleLineInputs = input.split(" ")
             for(let item of singleLineInputs){
                 //if the input is an operator
                 if(item in operations){
                     //check if the operation is able to be performed based on amount of numerical inputs
                     if(inputStack.length < 2){
-                        console.log('Unable to perform operation. Please input more numbers.');
+                        console.log("Unable to perform operation. Please input more numbers.");
                         return;
                     }
                     //deconstruct with y first so the operators work in the intended order of the given examples.
                     const [y, x]= [inputStack.pop(), inputStack.pop()];
                     //push result onto the stack for next operations
                     inputStack.push(operations[item](x,y));
+                    //need to check for divide by zero here so inputStack doesn"t completely reset
+                    if(item === "/" && y === 0){
+                        console.log("Cannot divide by zero, try another operation or add additional numbers first. Press 's' to view remaining operands");
+                        inputStack.push(x);
+                        inputStack.push(y);
+                    }
                 } else {
                     //force int / erroneous item check
                     let numInput = parseInt(item);
@@ -73,11 +74,12 @@ const readline = readLine.createInterface({
             }
             //log most recent calculation
             if(inputStack.length > 1){
-                console.log(`The two current operands are ${inputStack[inputStack.length-2]} and ${inputStack[inputStack.length-1]}`)
+                console.log(`The two current operands are ${inputStack[inputStack.length-2]} and ${inputStack[inputStack.length-1]}. Enter 's' to view remaining operands`)
             } else {
                 console.log(`The only operand is ${inputStack[inputStack.length-1]}`)
             }
-            
+            break;
+        }
     }
   });
   
