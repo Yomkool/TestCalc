@@ -18,10 +18,12 @@ console.log("Enter 'q' to exit");
 console.log("Enter 'cmd' to see all available commands");
 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
+// Use readline.on for continuous user input
 readline.on(`line`, (input) => {
     // Force lower case for switch-case matching
     input = input.toLowerCase();
     switch (input) {
+        // Show user available commands
         case "cmd":
             console.log("\nEnter 'q' to exit");
             console.log("Enter 'tutorial' for an explanation on how to use this calculator.")
@@ -31,11 +33,13 @@ readline.on(`line`, (input) => {
             console.log("Enter 'history' to see all operations this session");
             console.log("Enter integers and operators ('+', '-', '*', '/') separated by spaces or lines to begin calculating\n");
             break;
+        //Close calculator
         case "q":
             console.log("\nCalculator closing\n");
             readline.close();
             // Break to prevent other actions in switch
             break;
+        // Display the current stack to the user
         case "stack":
             // Break stack-case into logical outputs for the end user based on stack size
             if(calculator.inputStack.length === 1){
@@ -46,6 +50,7 @@ readline.on(`line`, (input) => {
                 console.log(`The current operands are ${calculator.inputStack}`);
             }
             break;
+        //Remove the most recent operand on the stack, if able
         case "back":
             // Check if back-case is legal
             if(calculator.inputStack.length > 1){
@@ -70,10 +75,12 @@ readline.on(`line`, (input) => {
                 console.log("There is nothing to remove from the stack. Please enter integers followed by operations to continue. Enter 'cmd' to see a list of all available commands.")
             }
             break;
+        // Reinitialize stack to be empty
         case "clear":
             console.log("All inputs removed.")
             calculator.inputStack = [];
             break;
+        // Display operation history to user
         case "history":
             if (calculator.performedOperation){
                 calculator.operationHistory.forEach((item)=>{
@@ -82,8 +89,8 @@ readline.on(`line`, (input) => {
             } else {
                 console.log("No operations performed this session.")
             }
-
             break;
+        // Give a step-by-step breakdown on how the calculator works to the user
         case "tutorial":
             console.log("\nWelcome to the tutorial!");
             console.log("This calculator uses Reverse Polish Notation (RPN). Here are some basics:");
@@ -100,6 +107,7 @@ readline.on(`line`, (input) => {
             console.log("9. Enter 'cmd' to see all available commands again.");
             console.log("Happy Calculating!\n")
             break;
+        // Any other input
         default:{
             // Create an array of inputs to iterate through
             let singleLineInputs = input.split(" ");

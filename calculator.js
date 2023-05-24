@@ -24,7 +24,7 @@ class Calculator {
         this.performedOperation = false;
     }
 
-    performOperation(item) {
+    performOperation(operator) {
         // Check if the operation is able to be performed based on amount of numerical inputs
         if(this.inputStack.length < 2){
             return "Unable to perform operation. Please input more integers.";
@@ -32,16 +32,16 @@ class Calculator {
         // Deconstruct with y first so the operators work in the intended order of the given examples.
         const [y, x] = [this.inputStack.pop(), this.inputStack.pop()];
         // Need to check for divide by zero here so inputStack doesn't completely reset
-        if(item === "/" && y === 0){
+        if(operator === "/" && y === 0){
             this.inputStack.push(x);
             this.inputStack.push(y);
             return "Cannot divide by zero, try another operation or add additional integers first. Enter 'stack' to view remaining operands";
         }
         // Push result onto the stack for next operations
-        let tempResult = this.operations[item](x, y);
+        let tempResult = this.operations[operator](x, y);
         this.inputStack.push(tempResult);
-        this.operationHistory.push(`${x} ${item} ${y} = ${tempResult}`);
-        //return null so no error is thrown
+        this.operationHistory.push(`${x} ${operator} ${y} = ${tempResult}`);
+        // Return null so no error is thrown
         return null;
     }
     

@@ -1,7 +1,6 @@
 //import spawn function from child_process module in node
 const { spawn } = require("child_process");
 const path = require("path");
-// const { stdin } = require("process");
 
 test("Calculator correctly calculates multi-line RPN expression", (done) => {
     //run the calculator
