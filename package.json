@@ -1,7 +1,8 @@
 {
   "name": "rpn-cli-calculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "RPN CLI calculator for Snap! Mobile",
+  "author": "PJ Bannon",
   "main": "cliInterface.js",
   "scripts": {
     "start": "node cliInterface.js",

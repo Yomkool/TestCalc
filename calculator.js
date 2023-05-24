@@ -1,6 +1,6 @@
 class Calculator {
     constructor() {
-        // Declare an array of possible operations to compare against input
+        // Declare possible operations
         this.operations = {
             "+": ((x, y) => x + y),
             "-": ((x, y) => x - y),
@@ -27,7 +27,7 @@ class Calculator {
     performOperation(item) {
         // Check if the operation is able to be performed based on amount of numerical inputs
         if(this.inputStack.length < 2){
-            return "Unable to perform operation. Please input more numbers.";
+            return "Unable to perform operation. Please input more integers.";
         }
         // Deconstruct with y first so the operators work in the intended order of the given examples.
         const [y, x] = [this.inputStack.pop(), this.inputStack.pop()];
@@ -35,7 +35,7 @@ class Calculator {
         if(item === "/" && y === 0){
             this.inputStack.push(x);
             this.inputStack.push(y);
-            return "Cannot divide by zero, try another operation or add additional numbers first. Press 's' to view remaining operands";
+            return "Cannot divide by zero, try another operation or add additional integers first. Enter 'stack' to view remaining operands";
         }
         // Push result onto the stack for next operations
         let tempResult = this.operations[item](x, y);

@@ -23,8 +23,9 @@ The advantage of reverse Polish notation is that it removes the need for order o
 This application is a command-line interface calculator that utilizes the concept of Reverse Polish Notation (RPN) to calculate mathematical expressions. The application is built with Node.js, tested with Jest, and follows ESLint rules for code quality.
 
 
-# Technical Choices
-The application is designed to be a CLI tool, as RPN inputs are naturally linear and work well with a command-line interface. Node.js was used due to its excellent support for command-line applications and I/O operations. Jest was used for testing due to its comprehensive feature set and simplicity. ESLint was used to ensure a consistent code style and catch potential errors early.
+## Technical Choices and Trade-offs
+The application is designed to be a CLI tool, as RPN inputs are naturally linear and work well with a command-line interface. Node.js was used due to its excellent support for command-line applications and I/O operations. Jest was used for testing due to its comprehensive feature set and simplicity. ESLint was used to ensure a consistent code style and catch potential errors early. While the testing for this calculator is sufficient for basic operation, not all of the features are fully tested for error handling and precise cases.
+
 
 # Getting Started
 1. Run 'npm install' to install necessary dependencies.
